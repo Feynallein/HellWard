@@ -6,10 +6,10 @@ public partial class HeartManager : HBoxContainer {
 	[Export(PropertyHint.File, "*.tscn")] String _heartContainer;
 	List<HeartContainer> _life = new();
 
-	int _baseLife = 3;
+	int _baseLife = 4;
 
 	public override void _Ready() {
-		_baseLife += 2 - (int) GetNode<GameManager>("/root/GameManager").SelectedDifficulty;
+		_baseLife += (int) GetNode<GameManager>("/root/GameManager").SelectedDifficulty;
 		for(int i = 0; i < _baseLife; i++) {
 			HeartContainer container = GD.Load<PackedScene>(_heartContainer).Instantiate() as HeartContainer;
 			container.Scale = new(5, 5);

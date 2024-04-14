@@ -7,10 +7,7 @@ public partial class AudioManager : AudioStreamPlayer {
 	private int _volume;
 	public int Volume => _volume;
 
-	[Export] AudioStream _menu;
-	[Export] AudioStream _easy;
 	[Export] AudioStream _medium;
-	[Export] AudioStream _hard;
 
 	public override void _Ready() {
 		UpdateSound(defaultVolume);
@@ -33,10 +30,8 @@ public partial class AudioManager : AudioStreamPlayer {
 
 	public void ChangeAudio(int? audio) {
 		Stream = audio switch {
-			0 => _easy,
-			1 => _medium,
-			2 => _hard,
-			_ => _menu,
+			null => null,
+			_ => _medium,
 		};
 	}
 }

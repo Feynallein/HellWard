@@ -55,7 +55,7 @@ public partial class EnemySpawner : AnimatedSprite2D {
 		do {
 			x = _random.RandfRange(0, _screenSize.X);
 			y = _random.RandfRange(0, _screenSize.Y - _padding);
-		} while(_playerPos.DistanceTo(new(x, y)) < 250);
+		} while(_playerPos.DistanceTo(new(x, y)) < 350);
 
 		Node2D spawn = GD.Load<PackedScene>(_EnemyNode).Instantiate() as Node2D;
 		spawn.GlobalPosition = new(x, y);

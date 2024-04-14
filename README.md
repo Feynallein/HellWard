@@ -4,6 +4,9 @@ HellWard is my entry for the Ludum Dare #55 which has for theme : Summoning.
 ### Pitch
 Step into the role of a divine ambassador, tasked with defending against a nefarious ritual that threatens to plunge the world into darkness. Confronted by a towering pentacle and an insidious necromancer, you stand your ground knowing that the end draws near. With only the holy light within you to rely on, brace yourself for relentless waves of monstrous foes sent by the necromancer. How long can you withstand the onslaught and protect the realm from ultimate doom? Prepare for an immersive defense experience where your faith and resilience will be put to the ultimate test.
 
+### How To Play
+Use the mouse to move the shield (only horizontal movement matters). When the manabar is full, press space to unleash the Holy Mantle!
+
 ### The team
 Me.
 

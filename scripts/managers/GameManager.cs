@@ -8,7 +8,7 @@ public partial class GameManager : Node {
 
 	public Difficulty? SelectedDifficulty => _difficulty;
 
-	public void SetDifficulty(Difficulty difficulty) {
+	public void SetDifficulty(Difficulty? difficulty) {
 		_difficulty = difficulty;
 		GetNode<AudioManager>("/root/AudioManager").ChangeAudio((int) _difficulty);
 	}

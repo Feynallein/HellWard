@@ -6,7 +6,7 @@ public partial class HeartManager : HBoxContainer {
 	[Export(PropertyHint.File, "*.tscn")] String _heartContainer;
 	List<HeartContainer> _life = new();
 
-	int _baseLife = 0;
+	int _baseLife = 3;
 
 	public override void _Ready() {
 		_baseLife += 2 - (int) GetNode<GameManager>("/root/GameManager").SelectedDifficulty;

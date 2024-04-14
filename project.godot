@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://scripts/managers/GameManager.cs"
 AudioManager="*res://nodes/audio_manager.tscn"
+Background="*res://nodes/background.tscn"
 
 [dotnet]
 

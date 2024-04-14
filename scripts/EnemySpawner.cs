@@ -64,7 +64,7 @@ public partial class EnemySpawner : AnimatedSprite2D {
 	}
 
 	private void _on_animation_finished() {
-		if(Animation == "summoning") {
+		if(Animation != "idle") {
 			Play("idle");
 		}
 	}

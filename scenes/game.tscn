@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://befcvykvqcpod"]
+[gd_scene load_steps=7 format=3 uid="uid://befcvykvqcpod"]
 
 [ext_resource type="PackedScene" uid="uid://cbxn4mb4wf8uj" path="res://nodes/enemy_spawner.tscn" id="1_2cgbc"]
 [ext_resource type="PackedScene" uid="uid://de5ianc14xhrn" path="res://nodes/audio_slider.tscn" id="1_3s5g6"]
@@ -6,12 +6,6 @@
 [ext_resource type="Script" path="res://scripts/HeartManager.cs" id="2_v7v0r"]
 [ext_resource type="PackedScene" uid="uid://doikjupudgbau" path="res://nodes/player.tscn" id="5_at563"]
 [ext_resource type="PackedScene" uid="uid://cxq7w82762aip" path="res://nodes/shield.tscn" id="6_u3q4x"]
-
-[sub_resource type="Gradient" id="Gradient_th3f2"]
-colors = PackedColorArray(0.0784314, 0.0784314, 0.0784314, 1, 0.0784314, 0.0784314, 0.0784314, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_eu81b"]
-gradient = SubResource("Gradient_th3f2")
 
 [node name="Game" type="Node2D"]
 
@@ -36,12 +30,6 @@ offset_bottom = 66.0
 theme_override_constants/separation = 20
 script = ExtResource("2_v7v0r")
 _heartContainer = "res://nodes/heart_container.tscn"
-
-[node name="Background" type="Sprite2D" parent="."]
-z_index = -3
-position = Vector2(542.5, 311.5)
-scale = Vector2(5.29297, 741)
-texture = SubResource("GradientTexture1D_eu81b")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("1_2cgbc")]
 position = Vector2(584, 148)

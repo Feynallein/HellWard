@@ -100,7 +100,7 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("1_jq2u4")
 theme_override_colors/font_color = Color(0.921569, 0, 0, 1)
-text = "Fuck go back"
+text = "Go back"
 flat = true
 
 [node name="Title" type="Label" parent="."]
@@ -132,6 +132,8 @@ text = "Game by Feynallein
 Music by Karl Casey @ White Bat Audio
 
 Zombie Holocaust Font by Chad Savage
+
+\"Hooded Protagonist\" art by Penzilla
 "
 
 [connection signal="pressed" from="BaseOptions/Play" to="." method="_on_play_pressed"]

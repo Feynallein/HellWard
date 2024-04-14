@@ -26,4 +26,4 @@ project/assembly_name="ludum55"
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.129412, 0.129412, 0.129412, 1)
+textures/canvas_textures/default_texture_filter=0

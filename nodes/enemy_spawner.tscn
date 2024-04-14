@@ -1,7 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbxn4mb4wf8uj"]
+[gd_scene load_steps=5 format=3 uid="uid://cbxn4mb4wf8uj"]
 
+[ext_resource type="SpriteFrames" uid="uid://4m503mibdfa1" path="res://assets/animation/necromancer.tres" id="1_21y71"]
 [ext_resource type="Script" path="res://scripts/EnemySpawner.cs" id="1_vjvv7"]
 
-[node name="EnemySpawner" type="Node2D"]
+[sub_resource type="Gradient" id="Gradient_h58yb"]
+offsets = PackedFloat32Array(0, 0.75974)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gfsbw"]
+gradient = SubResource("Gradient_h58yb")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="EnemySpawner" type="AnimatedSprite2D"]
+position = Vector2(-2, -72)
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("1_21y71")
+animation = &"idle"
+autoplay = "idle"
 script = ExtResource("1_vjvv7")
 _EnemyNode = "res://nodes/enemy.tscn"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+show_behind_parent = true
+position = Vector2(0.666667, 24.3333)
+color = Color(1, 0.776471, 0.85098, 1)
+texture = SubResource("GradientTexture2D_gfsbw")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

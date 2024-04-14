@@ -1,13 +1,130 @@
-[gd_scene load_steps=3 format=3 uid="uid://b20ki203u8a85"]
+[gd_scene load_steps=19 format=3 uid="uid://b20ki203u8a85"]
 
 [ext_resource type="Script" path="res://scripts/EnemyController.cs" id="1_tjcim"]
+[ext_resource type="Texture2D" uid="uid://bit3jppc8nsf4" path="res://assets/sprites/sheets/Flying eye/Flight.png" id="2_m3y22"]
+[ext_resource type="Texture2D" uid="uid://w2t7l8v6n0f3" path="res://assets/sprites/sheets/Flying eye/Attack3.png" id="2_v0wet"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gblhs"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ewdr"]
+atlas = ExtResource("2_v0wet")
+region = Rect2(0, 0, 150, 150)
 
-[node name="Enemy" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu02s"]
+atlas = ExtResource("2_v0wet")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3odnh"]
+atlas = ExtResource("2_v0wet")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r65c4"]
+atlas = ExtResource("2_v0wet")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dss8y"]
+atlas = ExtResource("2_v0wet")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7pip"]
+atlas = ExtResource("2_v0wet")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xcpq"]
+atlas = ExtResource("2_m3y22")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ow02"]
+atlas = ExtResource("2_m3y22")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfu6h"]
+atlas = ExtResource("2_m3y22")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3itgf"]
+atlas = ExtResource("2_m3y22")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yepw"]
+atlas = ExtResource("2_m3y22")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq72e"]
+atlas = ExtResource("2_m3y22")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lmbw"]
+atlas = ExtResource("2_m3y22")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmsuj"]
+atlas = ExtResource("2_m3y22")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0w0go"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ewdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu02s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3odnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r65c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dss8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7pip")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xcpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ow02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfu6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3itgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yepw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq72e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lmbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmsuj")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}]
+
+[node name="Enemy" type="AnimatedSprite2D"]
+position = Vector2(-16, -8)
+scale = Vector2(2.5, 2)
+sprite_frames = SubResource("SpriteFrames_0w0go")
+animation = &"Idle"
+autoplay = "Idle"
 script = ExtResource("1_tjcim")
 _projectile = "res://nodes/fire_ball.tscn"
 
-[node name="Gfx" type="Sprite2D" parent="."]
-scale = Vector2(40, 20)
-texture = SubResource("PlaceholderTexture2D_gblhs")
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -17,6 +17,10 @@ public partial class ProjectileController : CharacterBody2D {
 		KinematicCollision2D collision = MoveAndCollide((target - Position).Normalized() * _speed * (float) delta);
 
 		if(collision != null) {
+			if(collision.GetCollider() is StaticBody2D) {
+				GetTree().Root.GetNode<HeartManager>("Game/CanvasLayer/HeartManager").Damaged();
+			}
+
 			QueueFree();
 		}
 	}

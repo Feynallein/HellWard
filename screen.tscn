@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://q2ygr0kn23ig"]
+
+[ext_resource type="FontFile" uid="uid://bidy0kms60hdn" path="res://assets/fonts/Zombie_Holocaust.ttf" id="1_701b2"]
+[ext_resource type="Texture2D" uid="uid://b40towmuc6mh4" path="res://assets/sprites/sheets/Necro_solo.png" id="2_8ek68"]
+[ext_resource type="Texture2D" uid="uid://cb4cq8alwcjno" path="res://assets/sprites/Pentacle.png" id="3_iadm8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pentagram" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 638.0
+offset_top = 388.0
+offset_right = 1278.0
+offset_bottom = 1028.0
+texture = ExtResource("3_iadm8")
+
+[node name="EnemySpawner" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 879.0
+offset_top = 514.0
+offset_right = 921.0
+offset_bottom = 566.0
+scale = Vector2(4, 4)
+texture = ExtResource("2_8ek68")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -2.0
+offset_top = 58.0
+offset_right = -2.0
+offset_bottom = 289.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.921569, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_701b2")
+theme_override_font_sizes/font_size = 250
+text = "HellWard"
+horizontal_alignment = 1

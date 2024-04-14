@@ -14,7 +14,7 @@ Every 3d party asset used in this project is royalty free and free to use.
 
 Credit list:
 - Music "[Xenomorph](https://www.youtube.com/watch?v=wEpHqDOOBVc)" by Karl Casey @ White Bat Audio
-- Font "[Zombie Holocaust](https://www.sinisterfonts.com/)" by Chad Savage (see Zombie_Holocause_Font_Read_Me.txt (int assets/fonts) for more details)
+- Font "[Zombie Holocaust](https://www.sinisterfonts.com/)" by Chad Savage (see Zombie_Holocause_Font_Read_Me.txt (in assets/fonts) for more details)
 - Art "[Hooded Protagonist](https://penzilla.itch.io/hooded-protagonist)" by Penzilla
 - Art "[Flying Eye](https://luizmelo.itch.io/monsters-creatures-fantasy)" by LuizMelo
 - Art "[Firebolt](https://pimen.itch.io/fire-spell)" by Pimen

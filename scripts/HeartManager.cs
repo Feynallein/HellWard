@@ -8,8 +8,15 @@ public partial class HeartManager : HBoxContainer {
 
 	int _baseLife = 4;
 	bool _play = true;
+	bool _isInvincible = false;
+	float _elapsedTime = 0;
+	const float _invincibilityDuration = 1.2f;
+	const float _blinkDuration = 0.3f;
+	PlayerController _player;
+	float _lastBlink = 0;
 
 	public override void _Ready() {
+		_player = GetNode<PlayerController>("/root/Game/Player");
 		_baseLife += (int) GetNode<GameManager>("/root/GameManager").SelectedDifficulty;
 		for(int i = 0; i < _baseLife; i++) {
 			HeartContainer container = GD.Load<PackedScene>(_heartContainer).Instantiate() as HeartContainer;
@@ -20,7 +27,27 @@ public partial class HeartManager : HBoxContainer {
 		
 	}
 
-	public void Damaged() {
+    public override void _Process(double delta) {
+		if(!_isInvincible) {
+			return;
+		}
+
+        if(_invincibilityDuration < _elapsedTime) {
+			_isInvincible = false;
+			_player.Visible = true;
+		} else if(_blinkDuration < _elapsedTime - _lastBlink) {
+			_lastBlink = _elapsedTime;
+			_player.Visible = !_player.Visible;
+		}
+		
+		_elapsedTime += (float) delta;
+    }
+
+    public void Damaged() {
+		if(_isInvincible) {
+			return;
+		}
+
 		UpdateSound();
 		if(_play) {
 			GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play();
@@ -30,7 +57,11 @@ public partial class HeartManager : HBoxContainer {
 
 		if(idx == 0) {
 			GetNode<EnemySpawner>("/root/Game/EnemySpawner").OnDeath();
-			GetNode<PlayerController>("/root/Game/Player").Die();
+			_player.Die();
+		} else {
+			_elapsedTime = 0;
+			_lastBlink = 0;
+			_isInvincible = true;
 		}
 	}
 

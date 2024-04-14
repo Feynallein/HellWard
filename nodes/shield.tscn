@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxq7w82762aip"]
+[gd_scene load_steps=7 format=3 uid="uid://cxq7w82762aip"]
 
 [ext_resource type="Script" path="res://scripts/Shield.cs" id="1_xaqwx"]
 [ext_resource type="Texture2D" uid="uid://c0wyoacnn8xii" path="res://assets/sprites/shield.png" id="2_djmgu"]
+[ext_resource type="AudioStream" uid="uid://fw1fc7cuwcsd" path="res://assets/sfx/MAGIC_SPELL_Spawn_mono.wav" id="3_jlpg7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlsnw"]
 size = Vector2(32, 60)
@@ -33,3 +34,6 @@ scale = Vector2(1.5, 1.5)
 color = Color(0.898039, 0.678431, 0.105882, 1)
 energy = 3.0
 texture = SubResource("GradientTexture2D_ryqy8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jlpg7")

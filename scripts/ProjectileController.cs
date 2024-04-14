@@ -18,7 +18,17 @@ public partial class ProjectileController : CharacterBody2D {
 
 		if(collision != null) {
 			if(collision.GetCollider() is StaticBody2D) {
-				GetTree().Root.GetNode<HeartManager>("Game/CanvasLayer/HeartManager").Damaged();
+				StaticBody2D collider = collision.GetCollider() as StaticBody2D;
+				PlayerController player = collider.GetParentOrNull<PlayerController>();
+
+				if(player != null) {
+					GetTree().Root.GetNode<HeartManager>("Game/CanvasLayer/HeartManager").Damaged();
+				}
+				
+			} else if(collision.GetCollider() is CharacterBody2D) {
+				CharacterBody2D collider = collision.GetCollider() as CharacterBody2D;
+				Shield shield = collider.GetParentOrNull<Shield>();
+				shield?.Blocked();
 			}
 
 			QueueFree();

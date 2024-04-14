@@ -11,6 +11,8 @@ public partial class EnemyController : AnimatedSprite2D {
 	bool _flyAway = false;
 	Vector2 _playerPos;
 
+	bool _play = true;
+
 	public override void _Ready() {
 		Modulate = new(Modulate, 0);
 		_playerPos = GetNode<Node2D>("/root/Game/Player").GlobalPosition;
@@ -43,7 +45,18 @@ public partial class EnemyController : AnimatedSprite2D {
 		Play("Attack");
 	}
 
+	private void UpdateSound() {
+		int volume = GetNode<AudioManager>("/root/AudioManager").Volume;
+		GetNode<AudioStreamPlayer>("AudioStreamPlayer").VolumeDb = Math.Min(volume - 80, 20);
+		_play = volume != 0;
+	}
+
 	private async void _Shoot() {
+		UpdateSound();
+		if(_play) {
+			GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play();
+		}
+		
 		Node2D player = GetNode<Node2D>("/root/Game/Player");
 		ProjectileController projectile = GD.Load<PackedScene>(_projectile).Instantiate() as ProjectileController;
 		projectile.Position = Position;

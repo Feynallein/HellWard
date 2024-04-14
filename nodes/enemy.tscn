@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://b20ki203u8a85"]
+[gd_scene load_steps=20 format=3 uid="uid://b20ki203u8a85"]
 
 [ext_resource type="Script" path="res://scripts/EnemyController.cs" id="1_tjcim"]
 [ext_resource type="Texture2D" uid="uid://bit3jppc8nsf4" path="res://assets/sprites/sheets/Flying eye/Flight.png" id="2_m3y22"]
 [ext_resource type="Texture2D" uid="uid://w2t7l8v6n0f3" path="res://assets/sprites/sheets/Flying eye/Attack3.png" id="2_v0wet"]
+[ext_resource type="AudioStream" uid="uid://b3x2odu5njv5t" path="res://assets/sfx/MONSTER_Growl_Deep_08a_Short_mono.wav" id="4_2aq77"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ewdr"]
 atlas = ExtResource("2_v0wet")
@@ -125,6 +126,9 @@ script = ExtResource("1_tjcim")
 _projectile = "res://nodes/fire_ball.tscn"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2aq77")
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

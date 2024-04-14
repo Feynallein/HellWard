@@ -7,6 +7,7 @@ public partial class HeartManager : HBoxContainer {
 	List<HeartContainer> _life = new();
 
 	int _baseLife = 4;
+	bool _play = true;
 
 	public override void _Ready() {
 		_baseLife += (int) GetNode<GameManager>("/root/GameManager").SelectedDifficulty;
@@ -20,6 +21,10 @@ public partial class HeartManager : HBoxContainer {
 	}
 
 	public void Damaged() {
+		UpdateSound();
+		if(_play) {
+			GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play();
+		}
 		int idx = _life.FindLastIndex(e => e.IsFull);
 		_life[idx].Update(false);
 
@@ -27,5 +32,11 @@ public partial class HeartManager : HBoxContainer {
 			GetNode<EnemySpawner>("/root/Game/EnemySpawner").OnDeath();
 			GetNode<PlayerController>("/root/Game/Player").Die();
 		}
+	}
+
+	private void UpdateSound() {
+		int volume = GetNode<AudioManager>("/root/AudioManager").Volume;
+		GetNode<AudioStreamPlayer>("AudioStreamPlayer").VolumeDb = Math.Min(volume - 80, 20);
+		_play = volume != 0;
 	}
 }

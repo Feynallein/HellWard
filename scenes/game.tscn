@@ -1,11 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://befcvykvqcpod"]
+[gd_scene load_steps=17 format=3 uid="uid://befcvykvqcpod"]
 
 [ext_resource type="PackedScene" uid="uid://cbxn4mb4wf8uj" path="res://nodes/enemy_spawner.tscn" id="1_2cgbc"]
 [ext_resource type="PackedScene" uid="uid://de5ianc14xhrn" path="res://nodes/audio_slider.tscn" id="1_3s5g6"]
 [ext_resource type="PackedScene" uid="uid://by4g3pgta1v7b" path="res://nodes/pentagram.tscn" id="2_ryrl3"]
 [ext_resource type="Script" path="res://scripts/HeartManager.cs" id="2_v7v0r"]
+[ext_resource type="AudioStream" uid="uid://c7jxjujavu2ec" path="res://assets/sfx/GRUNT_Male_B_Hurt_Short_04_mono.wav" id="3_6dkyy"]
+[ext_resource type="Script" path="res://scripts/ManaBar.cs" id="4_37ail"]
 [ext_resource type="PackedScene" uid="uid://doikjupudgbau" path="res://nodes/player.tscn" id="5_at563"]
 [ext_resource type="PackedScene" uid="uid://cxq7w82762aip" path="res://nodes/shield.tscn" id="6_u3q4x"]
+[ext_resource type="Script" path="res://scripts/Ultra.cs" id="9_k7r8b"]
+[ext_resource type="AudioStream" uid="uid://ds0nv18esexv7" path="res://assets/sfx/MAGIC_SPELL_Shield_mono.wav" id="10_jnmw5"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_0qloi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lsu7t"]
+content_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uqklw"]
+color = Color(0.105882, 0.345098, 1, 1)
+thickness = 10
+
+[sub_resource type="Gradient" id="Gradient_do3a6"]
+offsets = PackedFloat32Array(0, 0.733766)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2cwn2"]
+gradient = SubResource("Gradient_do3a6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bl2tv"]
+radius = 18.3003
 
 [node name="Game" type="Node2D"]
 
@@ -31,6 +56,55 @@ theme_override_constants/separation = 20
 script = ExtResource("2_v7v0r")
 _heartContainer = "res://nodes/heart_container.tscn"
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/HeartManager"]
+stream = ExtResource("3_6dkyy")
+
+[node name="ManaBar" type="HSlider" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -67.0
+offset_right = 339.0
+offset_bottom = -51.0
+grow_vertical = 0
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_0qloi")
+theme_override_styles/slider = SubResource("StyleBoxEmpty_lsu7t")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_uqklw")
+max_value = 10.0
+value = 5.0
+rounded = true
+editable = false
+scrollable = false
+script = ExtResource("4_37ail")
+_baseColor = Color(0.00392157, 0.156863, 0.705882, 1)
+_lightenedCoef = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/ManaBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5/10"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/ManaBar"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 1.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press Space!"
+horizontal_alignment = 1
+
 [node name="EnemySpawner" parent="." instance=ExtResource("1_2cgbc")]
 position = Vector2(584, 148)
 animation = &"victory"
@@ -44,7 +118,28 @@ _baseColor = Color(0.45098, 0.0745098, 0.0745098, 1)
 _speed = 2.0
 
 [node name="Shield" parent="." instance=ExtResource("6_u3q4x")]
-_radius = 150
+_radius = 100
 
 [node name="Player" parent="." instance=ExtResource("5_at563")]
 position = Vector2(586, 579)
+
+[node name="Ultra" type="PointLight2D" parent="."]
+show_behind_parent = true
+position = Vector2(587, 600)
+scale = Vector2(10, 10)
+color = Color(0.768627, 0.627451, 0, 1)
+energy = 5.0
+texture = SubResource("GradientTexture2D_2cwn2")
+script = ExtResource("9_k7r8b")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ultra"]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ultra/StaticBody2D"]
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_bl2tv")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Ultra"]
+stream = ExtResource("10_jnmw5")
+
+[connection signal="value_changed" from="CanvasLayer/ManaBar" to="CanvasLayer/ManaBar" method="_on_value_changed"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b20ki203u8a85"]
+
+[ext_resource type="Script" path="res://scripts/EnemyController.cs" id="1_tjcim"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gblhs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srdwv"]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_tjcim")
+_projectile = "res://nodes/fire_ball.tscn"
+
+[node name="RigidBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Gfx" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(40, 20)
+texture = SubResource("PlaceholderTexture2D_gblhs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(2, 1)
+shape = SubResource("CapsuleShape2D_srdwv")

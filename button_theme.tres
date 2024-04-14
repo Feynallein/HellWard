@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://fexxi10qh571"]
+
+[ext_resource type="FontFile" uid="uid://bidy0kms60hdn" path="res://assets/fonts/Zombie_Holocaust.ttf" id="1_oy73x"]
+
+[resource]
+default_font = ExtResource("1_oy73x")
+default_font_size = 50

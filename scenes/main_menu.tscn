@@ -1,0 +1,142 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn3quklaxa40i"]
+
+[ext_resource type="FontFile" uid="uid://bidy0kms60hdn" path="res://assets/fonts/Zombie_Holocaust.ttf" id="1_fa2su"]
+[ext_resource type="Theme" uid="uid://fexxi10qh571" path="res://button_theme.tres" id="1_jq2u4"]
+[ext_resource type="Script" path="res://scripts/managers/MenuManager.cs" id="1_urdb0"]
+[ext_resource type="PackedScene" uid="uid://de5ianc14xhrn" path="res://nodes/audio_slider.tscn" id="2_l1pdx"]
+
+[node name="Container" type="Control" node_paths=PackedStringArray("_baseOptions", "_difficultyOptions")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_urdb0")
+_baseOptions = NodePath("BaseOptions")
+_difficultyOptions = NodePath("DifficultyOptions")
+
+[node name="VSlider" parent="." instance=ExtResource("2_l1pdx")]
+layout_mode = 1
+
+[node name="BaseOptions" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -301.0
+offset_right = 146.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="Play" type="Button" parent="BaseOptions"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_jq2u4")
+theme_override_colors/font_color = Color(0.921569, 0, 0, 1)
+text = "Play"
+flat = true
+
+[node name="Quit" type="Button" parent="BaseOptions"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_jq2u4")
+theme_override_colors/font_color = Color(0.921569, 0, 0, 1)
+text = "Exit
+"
+flat = true
+
+[node name="DifficultyOptions" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -141.0
+offset_top = -301.0
+offset_right = 146.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 5
+
+[node name="Easy" type="Button" parent="DifficultyOptions"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_jq2u4")
+theme_override_colors/font_color = Color(0.921569, 0, 0, 1)
+text = "Easy"
+flat = true
+
+[node name="Medium" type="Button" parent="DifficultyOptions"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_jq2u4")
+theme_override_colors/font_color = Color(0.921569, 0, 0, 1)
+text = "Medium"
+flat = true
+
+[node name="Hardcore" type="Button" parent="DifficultyOptions"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_jq2u4")
+theme_override_colors/font_color = Color(0.921569, 0, 0, 1)
+text = "Hardcore"
+flat = true
+
+[node name="GoBack" type="Button" parent="DifficultyOptions"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("1_jq2u4")
+theme_override_colors/font_color = Color(0.921569, 0, 0, 1)
+text = "Fuck go back"
+flat = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 78.0
+offset_bottom = 217.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.921569, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_fa2su")
+theme_override_font_sizes/font_size = 150
+text = "SURVIVE"
+horizontal_alignment = 1
+
+[node name="Credits" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -92.0
+offset_right = 313.0
+offset_bottom = -10.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "Game by Feynallein
+
+Music by Karl Casey @ White Bat Audio
+
+Zombie Holocaust Font by Chad Savage
+"
+
+[connection signal="pressed" from="BaseOptions/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="BaseOptions/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="DifficultyOptions/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="DifficultyOptions/Medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="DifficultyOptions/Hardcore" to="." method="_on_hardcore_pressed"]
+[connection signal="pressed" from="DifficultyOptions/GoBack" to="." method="_on_go_back_pressed"]

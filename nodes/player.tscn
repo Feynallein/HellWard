@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://doikjupudgbau"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4j8er"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e4e8v"]
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(2, 2)
+
+[node name="Gfx" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, -1.07288e-06)
+scale = Vector2(20, 30)
+texture = SubResource("PlaceholderTexture2D_4j8er")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CapsuleShape2D_e4e8v")

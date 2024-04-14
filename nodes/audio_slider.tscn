@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://de5ianc14xhrn"]
+
+[ext_resource type="Script" path="res://scripts/SliderController.cs" id="1_vqluf"]
+[ext_resource type="Texture2D" uid="uid://c1eo1wk237ym4" path="res://assets/sprites/speaker.png" id="2_3tav4"]
+
+[node name="VSlider" type="VSlider"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -174.0
+offset_right = -18.0
+offset_bottom = -47.0
+grow_horizontal = 0
+grow_vertical = 0
+step = 5.0
+value = 50.0
+rounded = true
+script = ExtResource("1_vqluf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -3.00003
+offset_right = 486.0
+offset_bottom = 509.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_3tav4")
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdbcky8wqejkb"]
+
+[ext_resource type="AudioStream" uid="uid://22m13eaw17ty" path="res://assets/music/burn_them_all.wav" id="1_l4r2n"]
+[ext_resource type="Script" path="res://scripts/managers/AudioManager.cs" id="2_uompf"]
+[ext_resource type="AudioStream" uid="uid://fqk2m1pjd3h2" path="res://assets/music/torn_flesh.wav" id="3_e2xfi"]
+[ext_resource type="AudioStream" uid="uid://nskmqsrtoom6" path="res://assets/music/xenomorph.wav" id="4_oxu4v"]
+[ext_resource type="AudioStream" uid="uid://dlsdkukhesiil" path="res://assets/music/fight_like_hell.wav" id="5_ekq75"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_l4r2n")
+script = ExtResource("2_uompf")
+_menu = ExtResource("1_l4r2n")
+_easy = ExtResource("3_e2xfi")
+_medium = ExtResource("4_oxu4v")
+_hard = ExtResource("5_ekq75")

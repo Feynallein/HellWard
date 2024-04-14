@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://by4g3pgta1v7b"]
+
+[ext_resource type="Texture2D" uid="uid://cb4cq8alwcjno" path="res://assets/sprites/Pentacle.png" id="1_lbp4d"]
+[ext_resource type="Script" path="res://scripts/Blink.cs" id="2_fu6ts"]
+
+[node name="Pentacle" type="Sprite2D"]
+position = Vector2(576, 323)
+texture = ExtResource("1_lbp4d")
+script = ExtResource("2_fu6ts")

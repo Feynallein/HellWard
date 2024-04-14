@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class EnemySpawner : AnimatedSprite2D {
 	const float _padding = 150;
@@ -77,5 +78,7 @@ public partial class EnemySpawner : AnimatedSprite2D {
 				e.QueueFree();
 			}
 		});
+
+		GetTree().Root.GetChildren().Where(e => e is ProjectileController).ToList().ForEach(e => e.QueueFree());
 	}
 }

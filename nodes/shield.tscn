@@ -1,20 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxq7w82762aip"]
 
 [ext_resource type="Script" path="res://scripts/Shield.cs" id="1_xaqwx"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_33xjb"]
+[ext_resource type="Texture2D" uid="uid://c0wyoacnn8xii" path="res://assets/sprites/shield.png" id="2_djmgu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlsnw"]
-size = Vector2(12, 70)
+size = Vector2(32, 60)
 
 [node name="Shield" type="Node2D"]
 script = ExtResource("1_xaqwx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(9.53674e-07, 9.53674e-07)
-rotation = 1.5708
-scale = Vector2(69, 11.5)
-texture = SubResource("PlaceholderTexture2D_33xjb")
+rotation = -1.5708
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_djmgu")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 

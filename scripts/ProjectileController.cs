@@ -22,6 +22,7 @@ public partial class ProjectileController : CharacterBody2D {
 	}
 
 	public void Go(Vector2 target) {
+		LookAt(target);
 		_target = target;
 		_speed = _random.RandfRange(_baseSpeed, _baseSpeed + (int) GetNode<GameManager>("/root/GameManager").SelectedDifficulty * 100 + 100);
 	}

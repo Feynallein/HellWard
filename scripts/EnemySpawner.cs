@@ -2,6 +2,8 @@ using Godot;
 using System;
 
 public partial class EnemySpawner : Node2D {
+	const float _padding = 150;
+
 	double _initialDifficulty;
 	double _difficultyScale;
 
@@ -13,15 +15,16 @@ public partial class EnemySpawner : Node2D {
 
 	double _lastSpawned = 0;
 
-	Rect2 _spawnArea;
 	Vector2 _screenSize;
+
 	GameManager _gameManager;
+
+	Vector2 _playerPos;
 
     public override void _Ready() {
 		_gameManager = GetNode<GameManager>("/root/GameManager");
-        CollisionShape2D shape = GetNode<CollisionShape2D>("Area/SpawnArea");
+        _playerPos = GetNode<Node2D>("/root/Game/Player").GlobalPosition;
 
-		_spawnArea = shape.Shape.GetRect();
 		_screenSize = GetViewport().GetVisibleRect().Size;
 
 		_initialDifficulty = 3 - (int) _gameManager.SelectedDifficulty;
@@ -46,9 +49,9 @@ public partial class EnemySpawner : Node2D {
 		float y = 0;
 
 		do {
-			x = _random.RandfRange(0, _screenSize.X);
-			y = _random.RandfRange(0, _screenSize.Y);
-		} while(_spawnArea.HasPoint(new(x, y)));
+			x = _random.RandfRange(0, _screenSize.X - _padding);
+			y = _random.RandfRange(0, _screenSize.Y - _padding);
+		} while(_playerPos.DistanceTo(new(x, y)) < 150);
 
 		Node2D spawn = GD.Load<PackedScene>(_EnemyNode).Instantiate() as Node2D;
 		spawn.Position = new(x, y);

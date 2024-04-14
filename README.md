@@ -13,7 +13,7 @@ Me.
 When starting this jam, I wanted to compete in the Compo. Unfortunatly, I am not able to produce (good enough!) art and music for games I enjoy doing and am proud showcasing to others so I didn't opt for the Compo. Though, I still decided to work alone, and to only work within 48h (In fact, I worked for ~20h) on this project as a challenge.
 
 ### Copyrights
-Every 3d party asset used in this project is royalty free and free to use.
+Every 3rd party asset used in this project is royalty free and free to use.
 
 Credit list:
 - Music "[Xenomorph](https://www.youtube.com/watch?v=wEpHqDOOBVc)" by Karl Casey @ White Bat Audio

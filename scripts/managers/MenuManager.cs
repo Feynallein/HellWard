@@ -41,6 +41,6 @@ public partial class MenuManager : Control {
 
 	private void _start(GameManager.Difficulty difficulty) {
 		GetNode<GameManager>("/root/GameManager").SetDifficulty(difficulty);
-		GetTree().ChangeSceneToFile("res://scenes/game.tscn");
+		GetNode<GameManager>("/root/GameManager").StartTimer();
 	}
 }

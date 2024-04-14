@@ -3,7 +3,7 @@ using System;
 
 public partial class ManaBar : HSlider {
 	const int _max = 15;
-	int _value = 14;
+	int _value = 0;
 
 	[Export] Color _baseColor;
 	[Export] float _lightenedCoef;

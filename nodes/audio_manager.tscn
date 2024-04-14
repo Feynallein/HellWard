@@ -4,5 +4,6 @@
 [ext_resource type="AudioStream" uid="uid://nskmqsrtoom6" path="res://assets/music/xenomorph.wav" id="4_oxu4v"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("4_oxu4v")
 script = ExtResource("2_uompf")
 _medium = ExtResource("4_oxu4v")

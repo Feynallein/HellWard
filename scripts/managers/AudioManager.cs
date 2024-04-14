@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 public partial class AudioManager : AudioStreamPlayer {
-	public const int defaultVolume = 0; //50;
+	public const int defaultVolume = 50;
 
 	private int _volume;
 	public int Volume => _volume;
@@ -11,10 +11,6 @@ public partial class AudioManager : AudioStreamPlayer {
 
 	public override void _Ready() {
 		UpdateSound(defaultVolume);
-
-		if(_volume != 0) {
-			Play();
-		}
 	}
 
 	public void UpdateSound(float value) {
@@ -23,15 +19,6 @@ public partial class AudioManager : AudioStreamPlayer {
 
 		if(_volume == 0 && Playing) {
 			Stop();
-		} else if(_volume != 0 && !Playing) {
-			Play();
 		}
-	}
-
-	public void ChangeAudio(int? audio) {
-		Stream = audio switch {
-			null => null,
-			_ => _medium,
-		};
 	}
 }

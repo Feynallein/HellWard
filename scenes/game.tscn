@@ -115,7 +115,7 @@ frame_progress = 1.0
 z_index = -2
 position = Vector2(588, 324)
 _baseColor = Color(0.45098, 0.0745098, 0.0745098, 1)
-_speed = 2.0
+_lightenedCoef = 1.5
 
 [node name="Shield" parent="." instance=ExtResource("6_u3q4x")]
 _radius = 100

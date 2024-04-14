@@ -3,24 +3,22 @@ using System;
 
 public partial class Blink : Sprite2D {
 	[Export] Color _baseColor;	
-	[Export] float _speed = 0.5f;
 	[Export] float _lightenedCoef = 1f;
 
-	float _t = 0;
+	double _elapsedTime = 0;
 
-	bool _up = true;
+	private double pulse(float bpm, float beatToPulseTo) {
+		if(_elapsedTime < 7.5) {
+			return 0;
+		} else if(_elapsedTime < 22) {
+			return Math.Pow((_elapsedTime - 7.5) / (22 - 7.5), 3);
+		}
+
+		return Math.Clamp(Math.Cos((_elapsedTime * Math.PI * bpm / (beatToPulseTo * 60)) % Math.PI), 0, 1);
+	}
 
 	public override void _Process(double delta) {
-		Modulate = _baseColor.Lerp(_baseColor.Lightened(_lightenedCoef), _t);
-
-		_t += _speed * (float) delta * (_up ? 1 : -1);
-
-		if(1 <= _t) {
-			_up = false;
-		}
-
-		if(_t <= 0) {
-			_up = true;
-		}
+		_elapsedTime += delta;
+		Modulate = _baseColor.Lerp(_baseColor.Lightened(_lightenedCoef), (float) pulse(130, 1));
 	}
 }

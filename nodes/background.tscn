@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://f8t74h65rva4"]
+[gd_scene load_steps=4 format=3 uid="uid://f8t74h65rva4"]
+
+[ext_resource type="Script" path="res://scripts/background.cs" id="1_lhn4v"]
 
 [sub_resource type="Gradient" id="Gradient_th3f2"]
 colors = PackedColorArray(0.0784314, 0.0784314, 0.0784314, 1, 0.0784314, 0.0784314, 0.0784314, 1)
@@ -8,6 +10,6 @@ gradient = SubResource("Gradient_th3f2")
 
 [node name="Background" type="Sprite2D"]
 z_index = -3
-position = Vector2(542.5, 311.5)
-scale = Vector2(5.29297, 741)
 texture = SubResource("GradientTexture1D_eu81b")
+centered = false
+script = ExtResource("1_lhn4v")

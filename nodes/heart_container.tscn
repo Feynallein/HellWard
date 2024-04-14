@@ -17,10 +17,12 @@ _empty = NodePath("Sprite2D")
 layout_mode = 1
 offset_right = 15.0
 offset_bottom = 14.0
+scale = Vector2(4, 4)
 texture = ExtResource("1_5ihby")
 
 [node name="Sprite2D2" type="TextureRect" parent="."]
 layout_mode = 1
 offset_right = 15.0
 offset_bottom = 14.0
+scale = Vector2(4, 4)
 texture = ExtResource("2_nrtu0")

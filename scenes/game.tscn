@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://befcvykvqcpod"]
+[gd_scene load_steps=8 format=3 uid="uid://befcvykvqcpod"]
 
 [ext_resource type="PackedScene" uid="uid://cbxn4mb4wf8uj" path="res://nodes/enemy_spawner.tscn" id="1_2cgbc"]
 [ext_resource type="PackedScene" uid="uid://de5ianc14xhrn" path="res://nodes/audio_slider.tscn" id="1_3s5g6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://0nxo6pekdpx8" path="res://assets/sprites/circle.png" id="3_cjqv7"]
 [ext_resource type="Script" path="res://scripts/Blink.cs" id="4_6cc6k"]
 [ext_resource type="PackedScene" uid="uid://doikjupudgbau" path="res://nodes/player.tscn" id="5_at563"]
+[ext_resource type="PackedScene" uid="uid://cxq7w82762aip" path="res://nodes/shield.tscn" id="6_u3q4x"]
 
 [node name="Game" type="Node2D"]
 
@@ -40,6 +41,9 @@ texture = ExtResource("3_cjqv7")
 script = ExtResource("4_6cc6k")
 _baseColor = Color(0.8, 0.752941, 0, 1)
 _speed = 0.9
+
+[node name="Shield" parent="." instance=ExtResource("6_u3q4x")]
+_radius = 150
 
 [node name="Player" parent="." instance=ExtResource("5_at563")]
 position = Vector2(582, 604)

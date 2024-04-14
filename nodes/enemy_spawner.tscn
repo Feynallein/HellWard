@@ -12,5 +12,5 @@ _EnemyNode = "res://nodes/enemy.tscn"
 [node name="Area" type="Area2D" parent="."]
 
 [node name="SpawnArea" type="CollisionShape2D" parent="Area"]
-position = Vector2(576.5, 445.25)
+position = Vector2(580, 454)
 shape = SubResource("RectangleShape2D_ajhjl")

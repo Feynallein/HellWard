@@ -42,7 +42,10 @@ public partial class EnemyController : AnimatedSprite2D {
 
 	private async void _WaitToShoot() {
 		await Task.Delay(TimeSpan.FromMilliseconds(1000));
-		Play("Attack");
+
+		if(IsInstanceValid(this)) {
+			Play("Attack");
+		}
 	}
 
 	private void UpdateSound() {
@@ -63,7 +66,11 @@ public partial class EnemyController : AnimatedSprite2D {
 		GetTree().Root.AddChild(projectile);
 		projectile.Go(player.Position);
 		await Task.Delay(TimeSpan.FromMilliseconds(2000));
-		_flyAway = true;
+		
+		if(IsInstanceValid(this)) {
+			_flyAway = true;
+		}
+		
 	}
 
 	private void _on_animation_finished() {

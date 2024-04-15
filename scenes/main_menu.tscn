@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn3quklaxa40i"]
+[gd_scene load_steps=7 format=3 uid="uid://dn3quklaxa40i"]
 
 [ext_resource type="FontFile" uid="uid://bidy0kms60hdn" path="res://assets/fonts/Zombie_Holocaust.ttf" id="1_fa2su"]
 [ext_resource type="Theme" uid="uid://fexxi10qh571" path="res://button_theme.tres" id="1_jq2u4"]
 [ext_resource type="Script" path="res://scripts/managers/MenuManager.cs" id="1_urdb0"]
 [ext_resource type="PackedScene" uid="uid://de5ianc14xhrn" path="res://nodes/audio_slider.tscn" id="2_l1pdx"]
-[ext_resource type="Texture2D" uid="uid://ij0ip1qmoirj" path="res://assets/sprites/arrow_left.png" id="4_d6pq1"]
-[ext_resource type="Texture2D" uid="uid://gdaav2wkdxui" path="res://assets/sprites/arrow_right.png" id="5_3q2x2"]
+[ext_resource type="Texture2D" uid="uid://dcxnotccfh2e2" path="res://assets/sprites/horizontal-flip.png" id="4_vyxx7"]
 [ext_resource type="Texture2D" uid="uid://jxobgxh3aggm" path="res://assets/sprites/mouse.png" id="6_6hx8o"]
 
 [node name="Container" type="Control" node_paths=PackedStringArray("_baseOptions", "_difficultyOptions")]
@@ -121,7 +120,19 @@ offset_right = -186.0
 offset_bottom = 354.0
 grow_horizontal = 0
 grow_vertical = 2
-metadata/_edit_group_ = true
+
+[node name="Horizontal-flip" type="TextureRect" parent="HowToPlay"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.5
+offset_top = 40.0
+offset_right = 308.5
+offset_bottom = 552.0
+grow_horizontal = 2
+scale = Vector2(0.75, 0.3)
+texture = ExtResource("4_vyxx7")
 
 [node name="Label" type="Label" parent="HowToPlay"]
 layout_mode = 1
@@ -131,38 +142,6 @@ offset_bottom = 42.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 text = "How to play:"
-
-[node name="ArrowLeft" type="TextureRect" parent="HowToPlay"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -144.5
-offset_top = -122.0
-offset_right = 367.5
-offset_bottom = 390.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("4_d6pq1")
-
-[node name="ArrowRight" type="TextureRect" parent="HowToPlay"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 9.49997
-offset_top = -124.0
-offset_right = 521.5
-offset_bottom = 388.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_3q2x2")
 
 [node name="TextureRect" type="TextureRect" parent="HowToPlay"]
 layout_mode = 1

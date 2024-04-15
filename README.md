@@ -27,5 +27,5 @@ Credit list:
 - Icon "[Horizontal Flip](https://game-icons.net/1x1/delapouite/horizontal-flip.html)" by Delapouite
 
 ### License
-Every file in this project that doesn't belong to 3rd party (and thus is listed above in the credit list) is under the license GPL-3.0-or-later. 
+Every file in this project that doesn't belong to a 3rd party (and thus isn't listed in the list above) is under the GPL-3.0-or-later license. 
 See [COPYING.txt] for license text.

@@ -7,11 +7,15 @@ public partial class Shield : Node2D {
 
 	[Export] int _radius = 3;
 	Vector2 _playerPos;
-	Vector2 _viewPort;
 	bool _play = true;
+	float _mappingStart;
+	float _mappingRange;
+	
 	public override void _Ready() {
 		_playerPos = GetNode<Node2D>("/root/Game/Player").GlobalPosition;
-		_viewPort = GetViewport().GetVisibleRect().Size;
+		Vector2 viewPort = GetViewport().GetVisibleRect().Size;
+		_mappingStart = viewPort.X * 1/4;
+		_mappingRange = (viewPort.X * 3/4) - _mappingStart;
 	}
 
 	public override void _Process(double delta) {
@@ -22,7 +26,7 @@ public partial class Shield : Node2D {
 
 	private float GetMousePercentage() {
 		float mousePos = GetGlobalMousePosition().X;
-		return Math.Clamp(mousePos / _viewPort.X, 0, 1);
+		return (float) Math.Clamp((mousePos - _mappingStart) / _mappingRange, 0, 1);
 	}
 
 	private Vector2 GetPos(float t) {

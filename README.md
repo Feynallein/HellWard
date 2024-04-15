@@ -2,7 +2,7 @@
 HellWard is my entry for the Ludum Dare #55 which has for theme : Summoning.
 
 ### Pitch
-Step into the role of a divine ambassador, tasked with defending against a nefarious ritual that threatens to plunge the world into darkness. Confronted by a towering pentacle and an insidious necromancer, you stand your ground knowing that the end draws near. With only the holy light within you to rely on, brace yourself for relentless waves of monstrous foes sent by the necromancer. How long can you withstand the onslaught and protect the realm from ultimate doom? Prepare for an immersive defense experience where your faith and resilience will be put to the ultimate test.
+Step into the role of a divine ambassador, tasked with defending against a wicked ritual that threatens to plunge the world into darkness. Confronted by a towering pentacle and an perfidious necromancer, you stand your ground knowing that the end draws near. With only the holy light within you to rely on, brace yourself for relentless waves of monstrous foes sent by the necromancer. How long can you withstand the onslaught and protect the realm from ultimate doom? Prepare for a survival-defense experience where your faith and resilience will be put to the ultimate test.
 
 ### How To Play
 Use the mouse to move the shield (only horizontal movement matters). When the manabar is full, press space to unleash the Holy Mantle!
@@ -22,3 +22,6 @@ Credit list:
 - Art "[Flying Eye](https://luizmelo.itch.io/monsters-creatures-fantasy)" by LuizMelo
 - Art "[Firebolt](https://pimen.itch.io/fire-spell)" by Pimen
 - Art "[Necromancer](https://creativekind.itch.io/necromancer-free)" by CreativeKind
+- Icon "[Mouse](https://game-icons.net/1x1/delapouite/mouse.html)" by Delapouite
+- Icon "[Speaker](https://game-icons.net/1x1/delapouite/speaker.html)" by Delapouite
+- Icon "[Horizontal Flip](https://game-icons.net/1x1/delapouite/horizontal-flip.html)" by Delapouite

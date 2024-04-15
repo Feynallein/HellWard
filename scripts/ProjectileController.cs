@@ -24,14 +24,17 @@ public partial class ProjectileController : CharacterBody2D {
 				if(player != null) {
 					GetTree().Root.GetNode<HeartManager>("Game/CanvasLayer/HeartManager").Damaged();
 				}
-				
+
+				QueueFree();
 			} else if(collision.GetCollider() is CharacterBody2D) {
 				CharacterBody2D collider = collision.GetCollider() as CharacterBody2D;
 				Shield shield = collider.GetParentOrNull<Shield>();
-				shield?.Blocked();
-			}
 
-			QueueFree();
+				if(shield != null) {
+					shield.Blocked();
+					QueueFree();
+				}
+			}	
 		}
 	}
 

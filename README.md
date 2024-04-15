@@ -25,3 +25,7 @@ Credit list:
 - Icon "[Mouse](https://game-icons.net/1x1/delapouite/mouse.html)" by Delapouite
 - Icon "[Speaker](https://game-icons.net/1x1/delapouite/speaker.html)" by Delapouite
 - Icon "[Horizontal Flip](https://game-icons.net/1x1/delapouite/horizontal-flip.html)" by Delapouite
+
+### License
+Every file in this project that doesn't belong to 3rd party (and thus is listed above in the credit list) is under the license GPL-3.0-or-later. 
+See [COPYING.txt] for license text.
